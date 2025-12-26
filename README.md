@@ -44,7 +44,7 @@ CenterSecurity/
 
 ```bash
 git clone https://github.com/lyzraldev/CenterSecurity.git
-cd CenterSecurity
+cd Security
 npm install
 ```
 
