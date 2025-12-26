@@ -1,34 +1,31 @@
+# 🔐 CenterSecurity — Discord OAuth2 Verification Bot
 
-# 🔐 SECURITY — Discord Verification & Security Bot
+CenterSecurity is a **Discord security bot** that adds an **OAuth2 verification step** before users gain full access to a server.
+It is designed to reduce **raids, alt accounts, and automated joins** by forcing members to complete a verification process.
 
-SECURITY is a **Discord verification and security bot** designed to add an **extra protection layer** before users gain full access to a server.
-
-It helps prevent **raids, alt accounts, and automated joins** by enforcing a **verification step**.
+This bot works **exclusively with slash commands** and is intended to be used by **staff members only**.
 
 ---
 
 ## ✨ Features
 
-- 🔒 Security verification step before access
-- 👤 Automatic role assignment after verification
-- 🚪 Restricted access until verification is completed
-- 🧩 Slash command based setup
-- 🗄️ Persistent storage (local database)
-- ⚡ Fast and lightweight
-- 🧱 Clean and modular structure
+- 🔑 OAuth2-based verification system
+- 🛡️ Extra security step before server access
+- 👤 Automatic role management after verification
+- 🚫 Restricted usage to staff members
+- ⚡ Slash commands only (no prefix commands)
+- 🧱 Single-file, lightweight architecture
+- 🔒 Designed for private and secured servers
 
 ---
 
 ## 🧱 Project Structure
 
 ```txt
-SECURITY/
-├── commands/        # Slash commands
-├── events/          # Discord events
-├── database/        # Persistent storage
-├── config.js        # Configuration file
-├── index.js         # Bot entry point
-├── package.json
+CenterSecurity/
+├── index.js          # Main bot logic (OAuth2 & verification flow)
+├── package.json      # Dependencies & scripts
+├── package-lock.json
 └── README.md
 ```
 
@@ -38,15 +35,16 @@ SECURITY/
 
 - Node.js v18 or higher
 - discord.js v14
-- Administrator permission on the server
+- A Discord application with OAuth2 enabled
+- Administrator permissions on the target server
 
 ---
 
 ## 📦 Installation
 
 ```bash
-git clone https://github.com/lyzraldev/SECURITY.git
-cd SECURITY
+git clone https://github.com/lyzraldev/CenterSecurity.git
+cd CenterSecurity
 npm install
 ```
 
@@ -54,89 +52,83 @@ npm install
 
 ## 🔑 Configuration
 
-Edit `index.js`:
+Before starting the bot, configure the required environment variables or values inside `index.js`:
 
-```js
-  const DISCORD_TOKEN = '';
+- `DISCORD_TOKEN` — Bot token
+- `CLIENT_ID` — Discord application client ID
+- `CLIENT_SECRET` — OAuth2 client secret
+- `GUILD_ID` — Target Discord server ID
+- `VERIFIED_ROLE_ID` — Role given after verification
+- `UNVERIFIED_ROLE_ID` — Role assigned before verification
 
-  const CLIENT_ID = '';
-  const CLIENT_SECRET = '';
-
-  const REDIRECT_URI = '';
-  const TARGET_GUILD_ID = '';
-
-  const config = {
-    verifyChannelId: '',
-    acceptChannelId: '',
-    refuseChannelId: ''
-  };
-  const JOIN_ROLE_1_ID = '';
-  const JOIN_ROLE_2_ID = '';
-  const GUILD_ID = '';
-
-  let OWNER_IDS = [''];
-  const SYS_IDS = [''];
-```
+⚠️ Never share your bot token or client secret.
 
 ---
 
-## ▶️ Start the Bot
+## ▶️ Running the Bot
 
 ```bash
 node index.js
 ```
 
-or with PM2:
+Production usage (recommended):
 
 ```bash
-pm2 start index.js --name SECURITY
+pm2 start index.js --name CenterSecurity
 ```
 
 ---
 
 ## 🛡️ Slash Commands
 
+All commands are **slash commands only** and restricted to staff members.
+
 | Command | Description |
 |-------|------------|
-| `/verify` | Start the verification process |
-| `/setup` | Configure verification system |
-| `/status` | Check verification status |
+| `/help` | Display available commands |
+| `/setup` | Initialize the security system |
+| `/verify` | Start the OAuth2 verification process |
+| `/status` | Check verification system status |
 
 ---
 
 ## 🔐 Verification Flow
 
 1. User joins the server
-2. User receives restricted role
-3. User completes verification step
-4. Bot assigns verified role
-5. Full access granted
+2. User receives a restricted role
+3. User completes OAuth2 verification
+4. Bot validates the user
+5. Verified role is assigned
+6. Full server access is granted
 
 ---
 
-## 🔒 Required Permissions
+## 🔒 Permissions Required
 
+Minimum permissions:
 - Manage Roles
 - Manage Channels
-- Manage Messages
 - View Audit Logs
+- Manage Messages
 
-Administrator permission recommended.
+Administrator permission is strongly recommended.
 
 ---
 
-## ⚠️ Notes
+## ⚠️ Important Notes
 
-- Bot role must be above verification roles
-- One instance per server recommended
-- Designed for private servers
+- The bot role must be **above verification roles**
+- Commands are usable **only inside a server**
+- Staff-only access is enforced internally
+- One instance per server is recommended
 
 ---
 
 ## 📜 License
 
 Private / educational use only.
+Redistribution or resale without permission is prohibited.
 
 ---
 
-⭐ Star the repo if you find it useful.
+⭐ If you use this project, consider starring the repository.
