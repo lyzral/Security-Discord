@@ -54,19 +54,28 @@ npm install
 
 ## 🔑 Configuration
 
-Edit `config.js`:
+Edit `index.js`:
 
 ```js
-module.exports = {
-  token: "YOUR_BOT_TOKEN",
-  clientId: "YOUR_CLIENT_ID",
-  guildId: "YOUR_GUILD_ID",
+  const DISCORD_TOKEN = '';
 
-  verifiedRole: "ROLE_ID_AFTER_VERIFICATION",
-  unverifiedRole: "ROLE_ID_BEFORE_VERIFICATION",
+  const CLIENT_ID = '';
+  const CLIENT_SECRET = '';
 
-  owners: ["YOUR_USER_ID"]
-};
+  const REDIRECT_URI = '';
+  const TARGET_GUILD_ID = '';
+
+  const config = {
+    verifyChannelId: '',
+    acceptChannelId: '',
+    refuseChannelId: ''
+  };
+  const JOIN_ROLE_1_ID = '';
+  const JOIN_ROLE_2_ID = '';
+  const GUILD_ID = '';
+
+  let OWNER_IDS = [''];
+  const SYS_IDS = [''];
 ```
 
 ---
