@@ -1,4 +1,4 @@
-# 🔐 CenterSecurity — Discord OAuth2 Verification Bot
+# 🔐 Security — Discord OAuth2 Verification Bot
 
 CenterSecurity is a **Discord security bot** that adds an **OAuth2 verification step** before users gain full access to a server.
 It is designed to reduce **raids, alt accounts, and automated joins** by forcing members to complete a verification process.
